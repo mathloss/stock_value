@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1>Home page</h1>
+
+{% if ticker %}
+	{{ ticker }}
+{% endif %}
+<br/><br/>
+{% if api %}
+	{% if api == "Erreur..." %}
+		Il y a une erreur. veuillez recommencer
+	{% else %}
+		<h1>{{ api.companyName }}</h1><br/>
+		Price : $ {{ api.latestPrice }}<br/>
+		Previous Close : {{ api.previousClose }}<br/>
+		Market Cap : {{ api.marketCap }}<br/>
+		YTD Change : {{ api.ytdChange }}<br/>
+		52Wk High : {{ api.week52High }}<br/>
+		52Wk Low : {{ api.week52Low }}<br/>
+
+		
+	{% endif %}
+
+{% endif %}
+
+{% endblock %}
